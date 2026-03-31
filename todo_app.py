@@ -19,3 +19,15 @@ elif user_choice == "edit":
             todos[todo_to_edit] = new_todo
     except ValueError:
         print("Invalid input, please only enter a number")
+elif user_choice == 'complete':
+    todo_to_complete = input("Enter the number for the todo you would like to complete: ")
+    try:
+        todo_to_complete = int(todo_to_complete) -1
+        if todo_to_complete < 0 or todo_to_complete >= len(todos):
+            print("Invalid todo number. Please try again.")
+        else:
+            todos.pop(todo_to_complete)
+    except ValueError:
+        print("Invalid input, please only enter a number")
+elif user_choice == 'exit':
+    print("Thank you for using the TODO app, goodbye!")
