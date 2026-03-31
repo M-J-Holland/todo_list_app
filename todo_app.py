@@ -14,29 +14,40 @@ while True:
     elif user_choice == "edit":
             if not todos:
                 print("You have no todos to edit, please add some todos first.")
-            todo_to_edit = input("Enter the number for the todo you would like to edit: ")
-            while True:
-                try:
-                    todo_to_edit = int(todo_to_edit) - 1
-                    if todo_to_edit < 0 or todo_to_edit >= len(todos):
-                        print("Invalid todo number. Please try again.")
+            else:
+                todo_to_edit = input("Enter the number for the todo you would like to edit: ")
+                while True:
+                    try:
+                        todo_to_edit = int(todo_to_edit) - 1
+                        if todo_to_edit < 0 or todo_to_edit >= len(todos):
+                            print("Invalid todo number. Please try again.")
+                            todo_to_edit = input("Enter the number for the todo you would like to edit: ")
+                            continue
+                        new_todo = input("Enter your new todo: ")
+                        todos[todo_to_edit] = new_todo
+                        break
+                    except ValueError:
+                        print("Invalid input, please only enter a number")
                         todo_to_edit = input("Enter the number for the todo you would like to edit: ")
                         continue
-                    new_todo = input("Enter your new todo: ")
-                    todos[todo_to_edit] = new_todo
+    elif user_choice == 'complete':
+        if not todos:
+            print("You have no todos to complete, please add some todos first.")
+        else:
+            todo_to_complete = input("Enter the number for the todo you would like to complete: ")
+            while True:
+                try:
+                    todo_to_complete = int(todo_to_complete) -1
+                    if todo_to_complete < 0 or todo_to_complete > len(todos):
+                        print("Invalid todo number. Please try again.")
+                        todo_to_complete = input("Enter the number for the todo you would like to complete: ")
+                        continue
+                    todos.pop(todo_to_complete)
                     break
                 except ValueError:
                     print("Invalid input, please only enter a number")
-                    todos_to_edit = input("Enter the number for the todo you would like to edit: ")
-    elif user_choice == 'complete':
-        todo_to_complete = input("Enter the number for the todo you would like to complete: ")
-        try:
-            todo_to_complete = int(todo_to_complete) -1
-            if todo_to_complete < 0 or todo_to_complete > len(todos):
-                print("Invalid todo number. Please try again.")
-            else:
-                todos.pop(todo_to_complete)
-        except ValueError:
-            print("Invalid input, please only enter a number")
+                    todo_to_complete = input("Enter the number for the todo you would like to complete: ")
+                    continue
     elif user_choice == 'exit':
         print("Thank you for using the TODO app, goodbye!")
+        break
