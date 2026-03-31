@@ -38,7 +38,7 @@ while True:
             while True:
                 try:
                     todo_to_complete = int(todo_to_complete) -1
-                    if todo_to_complete < 0 or todo_to_complete > len(todos):
+                    if todo_to_complete < 0 or todo_to_complete >= len(todos):
                         print("Invalid todo number. Please try again.")
                         todo_to_complete = input("Enter the number for the todo you would like to complete: ")
                         continue
