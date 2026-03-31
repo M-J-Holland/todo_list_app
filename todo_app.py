@@ -6,6 +6,7 @@ try:
         if user_choice == 'add':
             todo_to_add = input("Enter your todo to add it to the todos list: ")
             todos.append(todo_to_add)
+            print(f"Your todo: '{todo_to_add}' has been added to the list.")
 
         elif user_choice == "show":
             if not todos:
@@ -28,6 +29,7 @@ try:
                             continue
                         new_todo = input("Enter your new todo: ")
                         todos[todo_to_edit] = new_todo
+                        print(f"Your old todo has been edited to {new_todo}")
                         break
                     except ValueError:
                         print("Invalid input, please only enter a number")
@@ -47,6 +49,7 @@ try:
                             todo_to_complete = input("Enter the number for the todo you would like to complete: ")
                             continue
                         todos.pop(todo_to_complete)
+                        print("Your todo has been completed and removed from the list.")
                         break
                     except ValueError:
                         print("Invalid input, please only enter a number")
