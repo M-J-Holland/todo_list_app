@@ -10,7 +10,7 @@ todo_options = {"add": add_todo,
 
 def main():
     print("Welcome to the CLI TODO app!")
-    todos = []
+    todos = read_todos()
     try:
         while True:
             user_choice = input("Would you like to 'add', 'show', 'edit', 'complete' or 'exit'? ").strip().lower()
